@@ -16,13 +16,22 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nome</th>
+                <th scope="col">Quantidade</th>
+                <th scope="col">Ano de Fabricação</th>
                 <th scope="col">Descrição</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
             </tr>
         </thead>
-        
+        <tbody>
+            @foreach($produtos as $produto)
+            <tr>
+                <th>{{ $produto->id }}</th>
+                <th>{{ $produto->nome}}</th>
+                <th>{{ $produto->quantidade}}</th>
+                <th>{{ $produto->fabricacao }}</th>
+                <th>{{ $produto->descricao }}</th>
+            </tr>
+            @endforeach
+        </tbody>
     </table>
 </div>
 

@@ -3,7 +3,7 @@
 @section('content')
 <div class="container p-5">
     <h1>Criar novo Produto</h1>
-    <form action="" method="POST">
+    <form action="{{ route('produto-salvo') }}" method="POST">
         @csrf
         <div class="form-group p-3">
             <div class="card">
@@ -27,6 +27,13 @@
                             <option value="4">2024</option>
                             <option value="5">2025</option>
                         </select>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="identificador_descricao"><b>Descrição: </b></label>
+                        <input id="identificador_descricao" name="descricao_produto" placeholder="Descreva melhor sobre o produto" type="text" class="form-control mt-2">
+                    </div>
+                    <div class="form-group col-12  d-flex justify-content-end p-3">
+                        <input type="submit" name="submit" class='btn btn-primary'>
                     </div>
                 </div>
             </div>
