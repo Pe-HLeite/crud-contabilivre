@@ -15,8 +15,10 @@ Route:: get('/', function () {
 
 Route::prefix('produto')->group(function() {
     Route::get('', [ProdutosController::class, 'index'])->name('produto-listagem');
-    Route::get('/{id}', [ProdutosController::class, 'show'])->name('produto-edicao');
-
+    
     Route::get('/cadastro', [ProdutosController::class, 'create'])->name('produto-cadastro');
     Route::post('/', [ProdutosController::class, 'store'])->name('produto-salvo');
+
+    Route::get('/{id}', [ProdutosController::class, 'edit'])->name('produto-edicao');
+    Route::put('/{id}', [ProdutosController::class, 'update'])->name('produto-atualizado');
 });

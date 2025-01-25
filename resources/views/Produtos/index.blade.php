@@ -19,6 +19,7 @@
                 <th scope="col">Quantidade</th>
                 <th scope="col">Ano de Fabricação</th>
                 <th scope="col">Descrição</th>
+                <th scope="col">Editar</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,11 @@
                 <th>{{ $produto->quantidade}}</th>
                 <th>{{ $produto->fabricacao }}</th>
                 <th>{{ $produto->descricao }}</th>
+                <th>
+                    <a href="{{ route('produto-edicao', ['id' => $produto->id]) }}" class="btn btn-primary btn-sm">
+                        <i class="fa-regular fa-pen-to-square"></i>
+                    </a>
+                </th>
             </tr>
             @endforeach
         </tbody>

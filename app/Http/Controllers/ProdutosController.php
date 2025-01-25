@@ -13,9 +13,10 @@ class ProdutosController extends Controller
      */
     public function index()
     {
+        dd('Passando por aqui');
         $produtos = Produtos::all();
 
-        return view('Produtos.index',['produtos' => $produtos]);
+        return view('Produtos.index', ['produtos' => $produtos]);
     }
 
     /**
@@ -31,13 +32,15 @@ class ProdutosController extends Controller
      */
     public function store(Request $request)
     {
-        $novo_produto = Produtos::create([
+        $produto = Produtos::create([
             'nome' => $request['nome_produto'],
             'quantidade' => $request['quantidade_produto'],
             'fabricacao' => $request['fabricacao_produto'],
             'descricao' => $request['descricao_produto']
         ]);
         
+        return redirect()->route('produto-edicao', $produto->id)
+            ->with('succes', 'Produto cadastrado com sucesso');
     }
 
     /**
@@ -45,9 +48,7 @@ class ProdutosController extends Controller
      */
     public function show(string $id)
     {
-        $produtos = Produtos::where('id', $id)->first();
-
-        return view('Produtos.edicao', ['produto' => $produtos]);
+        //
     }
 
     /**
@@ -55,7 +56,9 @@ class ProdutosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $produto = Produtos::FindOrFail($id);
+
+        return view('Produtos.edicao', compact('produto'));
     }
 
     /**
@@ -63,7 +66,14 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $produto = Produtos::where('id', $id)->update([
+            'nome' => $request['nome_produto'],
+            'quantidade' => $request['quantidade_produto'],
+            'fabricacao' => $request['fabricacao_produto'],
+            'descricao' => $request['descricao_produto']
+        ]);
+
+        return view('Produtos.edicao', compact('produto'));
     }
 
     /**

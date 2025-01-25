@@ -2,19 +2,20 @@
 
 @section('content')
 <div class="container p-5">
-    <h1>Criar novo Produto</h1>
+    <h1>Criar Produto</h1>
+    <hr>
     <form action="{{ route('produto-salvo') }}" method="POST">
         @csrf
         <div class="form-group p-3">
             <div class="card">
                 <div class="card-body row g-2">
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 col-sm-6">
                         <label for="identificador_nome"><b>Nome do produto: </b></label>
-                        <input id="identificador_nome" name="nome_produto" placeholder="Informe o Nome do Produto" type="text" class="form-control mt-2">
+                        <input id="identificador_nome" name="nome_produto" value="{{ $produto->nome ?? '' }}" placeholder="Informe o Nome do Produto" type="text" class="form-control mt-2">
                     </div>
-                    <div class="form-group col-12">
+                    <div class="form-group col-12 col-sm-6">
                         <label for="identificador_quantidade"><b>Quantidade: </b></label>
-                        <input id="identificador_quantidade" name="quantidade_produto" placeholder="Informe a Quantidade" type="number" class="form-control mt-2">
+                        <input id="identificador_quantidade" name="quantidade_produto" value="{{ $produto->quantidade ?? '' }}" placeholder="Informe a Quantidade" type="number" class="form-control mt-2">
                     </div>
                     <div class="form-group col-12">
                         <label for="identificador_ano_fabricacao"><b>Ano de fabricação: </b></label>
@@ -30,10 +31,11 @@
                     </div>
                     <div class="form-group col-12">
                         <label for="identificador_descricao"><b>Descrição: </b></label>
-                        <input id="identificador_descricao" name="descricao_produto" placeholder="Descreva melhor sobre o produto" type="text" class="form-control mt-2">
+                        <input id="identificador_descricao" name="descricao_produto" value="{{ $produto->descricao ?? '' }}" placeholder="Descreva melhor sobre o produto" type="text" class="form-control mt-2">
                     </div>
-                    <div class="form-group col-12  d-flex justify-content-end p-3">
+                    <div class="form-group col-12  d-flex justify-content-end p-3 pb-0">
                         <input type="submit" name="submit" class='btn btn-primary'>
+                        
                     </div>
                 </div>
             </div>
