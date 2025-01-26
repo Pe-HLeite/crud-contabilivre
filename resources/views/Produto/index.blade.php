@@ -40,7 +40,7 @@
                                 <textarea id="identificador_descricao" name="descricao_produto" placeholder="Descreva melhor sobre o produto" type="text" class="form-control mt-2">{{ $produto->descricao ?? '' }}</textarea>
                             </div>
                             <div class="d-flex justify-content-between pt-3 pb-0">
-                                <button type="reset" class="btn btn-secondary btn-sm" onclick="window.location.href='{{ route("produtos.index") }}'">
+                                <button type="reset" class="btn btn-secondary btn-sm" onclick="window.location.href='{{ route('produtos.index')}}'">
                                     <i class="fa-solid fa-eraser"></i>
                                     Limpar
                                 </button>

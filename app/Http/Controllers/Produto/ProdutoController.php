@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Produto;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Produto\ProdutoRequest;
 use App\Models\Produto\Produtos;
 
 class ProdutoController extends Controller
@@ -53,14 +52,6 @@ class ProdutoController extends Controller
         ]);
 
         return view('Produto.form', ['produto' => $produto])->with('success', 'Produto cadastrado com sucesso!');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
