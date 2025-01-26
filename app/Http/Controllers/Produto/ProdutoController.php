@@ -79,10 +79,10 @@ class ProdutoController extends Controller
     public function update(Request $request, string $id)
     {
         Produtos::where('id', $id)->update([
-            'nome' => $request['nome_produto'],
-            'quantidade' => $request['quantidade_produto'],
-            'fabricacao' => $request['fabricacao_produto'],
-            'descricao' => $request['descricao_produto']
+            'nome' => $request->nome_produto,
+            'quantidade' => $request->quantidade_produto,
+            'fabricacao' => $request->fabricacao_produto,
+            'descricao' => $request->descricao_produto
         ]);
 
         return redirect()->route('produtos.index');

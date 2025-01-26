@@ -42,9 +42,13 @@
                             </a>
                         </th>
                         <th>
-                            <button  class="btn btn-danger btn-sm">
-                                <i class="fa-regular fa-trash-can"></i>
-                            </button>
+                            <form action="{{ route('usuarios.destroy', ['usuario' => $usuario->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button  class="btn btn-danger btn-sm">
+                                    <i class="fa-regular fa-trash-can"></i>
+                                </button>
+                            </form>
                         </th>
                     </tr>
                     @endforeach

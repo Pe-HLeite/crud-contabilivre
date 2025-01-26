@@ -54,7 +54,9 @@ class UsuarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $usuario = Usuarios::FindOrFail($id);
+
+        return view('Usuario.form', ['usuario' => $usuario]);
     }
 
     /**
@@ -62,7 +64,14 @@ class UsuarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        Usuarios::where('id', $id)->update([
+            'nome' => $request->nome_usuario,
+            'idade' => $request->idade_usuario,
+            'empresa_id' => $request->empresa_usuario,
+            'cargo' => $request->cargo_usuario
+        ]);
+
+        return redirect()->route('usuarios.index');
     }
 
     /**
@@ -70,6 +79,8 @@ class UsuarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Usuarios::where('id', $id)->delete();
+
+        return redirect()->route('usuarios.index');
     }
 }
