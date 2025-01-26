@@ -27,9 +27,9 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('produtos.index') }}">Produtos</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Empresas</a>
-                    </li>
+                    </li> -->
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{{ route('upDownloads.index') }}">Upload/download</a>
                     </li>
